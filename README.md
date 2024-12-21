@@ -10,5 +10,12 @@ Node JS based Gemini AI App
 GEMINI_AI_API_KEY=your api key
 3. Execute command in application root 'npm install'
 4. Install nodemon package in your machine using command 'npm install -g nodemon'
-5. execute command 'nodemon start'
+5. Execute command 'nodemon start'
+```
+
+### Two code examples are mention
+
+```sh
+1. Return data from prompt text
+2. Provide image to read it and return information
 ```
