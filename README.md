@@ -13,7 +13,7 @@ GEMINI_AI_API_KEY=your api key
 5. Execute command 'nodemon start'
 ```
 
-### Two code examples are mention
+### Some of the code examples are
 
 ```sh
 1. Return data from prompt text
