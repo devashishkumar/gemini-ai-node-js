@@ -32,7 +32,7 @@ class GeminiAiClass {
    * * @param {string} prompt
    * @returns
    */
-  async fileToGenerativePart(fileName, mimeType, prompt) {
+  async imageToText(fileName, mimeType, prompt) {
     const model = this.geminiAiObj.getGenerativeModel({
       model: this.geminiAiModel,
     });
@@ -51,7 +51,7 @@ class GeminiAiClass {
 
 const classObj = new GeminiAiClass();
 // classObj.generateTextData("What are LLM");
-classObj.fileToGenerativePart(
+classObj.imageToText(
   `image.png`,
   "image/png",
   "Tell something about this image"
