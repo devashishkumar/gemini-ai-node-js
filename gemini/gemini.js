@@ -8,7 +8,6 @@ class GeminiAiClass {
   geminiAiModel = "gemini-1.5-flash";
 
   constructor() {
-    console.log(this.geminiAiApiKey);
     this.geminiAiObj = new GoogleGenerativeAI(this.geminiAiApiKey);
   }
 
@@ -47,12 +46,31 @@ class GeminiAiClass {
     const result = await model.generateContent([prompt, imageResponse]);
     console.log(result.response.text());
   }
+
+  /**
+   * generate response as stream
+   * @param {string} prompt
+   */
+  async generateTextStream(prompt) {
+    const model = this.geminiAiObj.getGenerativeModel({
+      model: this.geminiAiModel,
+    });
+
+    const result = await model.generateContentStream(prompt);
+
+    // Print text as it comes in.
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      process.stdout.write(chunkText);
+    }
+  }
 }
 
 const classObj = new GeminiAiClass();
 // classObj.generateTextData("What are LLM");
-classObj.imageToText(
-  `image.png`,
-  "image/png",
-  "Tell something about this image"
-);
+// classObj.imageToText(
+//   `image.png`,
+//   "image/png",
+//   "Tell something about this image"
+// );
+classObj.generateTextData("What are LLM");

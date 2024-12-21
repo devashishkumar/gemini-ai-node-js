@@ -18,4 +18,5 @@ GEMINI_AI_API_KEY=your api key
 ```sh
 1. Return data from prompt text
 2. Provide image to read it and return information
+3. Generate response as stream
 ```
