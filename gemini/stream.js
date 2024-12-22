@@ -1,4 +1,5 @@
 const fs = require("fs");
+const zlib = require("zlib");
 const fileName = "input.txt";
 
 // read file
@@ -32,4 +33,15 @@ const readFileInStream = () => {
   }
 };
 
-module.exports = { readFile, readFileInStream };
+// create zip file from existing file
+const createZip = () => {
+  try {
+    fs
+      .createReadStream(fileName)
+      .pipe(zlib.createGzip().pipe(fs.createWriteStream("./input.zip")));
+  } catch (e) {
+    console.log("error");
+  }
+};
+
+module.exports = { createZip, readFile, readFileInStream };

@@ -3,15 +3,16 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const status = require("express-status-monitor");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 require('./gemini/gemini');
 // require('./gemini/ImageProcessing');
-const {readFile, readFileInStream} = require('./gemini/stream');
-readFileInStream();
+const {createZip, readFile, readFileInStream} = require('./gemini/stream');
 
 var app = express();
+app.use(status());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

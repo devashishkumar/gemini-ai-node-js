@@ -35,4 +35,5 @@ GEMINI_AI_API_KEY=your api key
 ```sh
 1. Read file
 2. Read file in stream
+3. Create zip file from existing file
 ```
