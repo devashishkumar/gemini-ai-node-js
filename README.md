@@ -33,12 +33,12 @@ GEMINI_AI_API_KEY=your api key
 ### Node JS
 
 ```sh
-1. Read file
-2. Read file in stream
-3. Create zip file from existing file
-4. Create text file sync/async
-5. Append file content
-6. Copy file
-7. Remove file
-8. Create new directory in case not available in the provide path
+1. Read file sync/async/stream
+2. Create zip file from existing file
+3. Create text file sync/async
+4. Append file content
+5. Copy file
+6. Remove file
+7. Create new directory in case not available in the provide path
+8. Save file from server url
 ```

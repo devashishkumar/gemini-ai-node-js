@@ -1,7 +1,13 @@
 const fs = require("fs");
 const zlib = require("zlib");
+const { mkdir } = require("fs/promises");
+const { Readable } = require("stream");
+const { finished } = require("stream/promises");
+const path = require("path");
 const fileName = "input.txt";
 const unlinkFileName = "";
+const imageUrl =
+  "https://images.pexels.com/photos/1115090/pexels-photo-1115090.jpeg";
 
 // read file
 const readFile = () => {
@@ -139,6 +145,25 @@ const createDirectory = () => {
   }
 };
 
+// create random string
+const randomString = () => {
+  return (Math.random() + 1).toString(36).substring(7).toString();
+};
+
+// save file from server url
+const saveFileFromUrl = async () => {
+  const res = await fetch(imageUrl);
+  let fName = randomString();
+  const splitName = imageUrl.split(".");
+  if (splitName && splitName.length) {
+    fName = `${fName}.${splitName[splitName.length - 1]}`;
+  }
+  if (!fs.existsSync("downloads")) await mkdir("downloads"); //Optional if you already have downloads directory
+  const destination = path.resolve("./downloads", fName);
+  const fileStream = fs.createWriteStream(destination, { flags: "wx" });
+  await finished(Readable.fromWeb(res.body).pipe(fileStream));
+};
+
 module.exports = {
   appendFileContent,
   copyFile,
@@ -148,4 +173,5 @@ module.exports = {
   readFile,
   readFileInStream,
   removeFile,
+  saveFileFromUrl,
 };

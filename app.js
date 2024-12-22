@@ -17,9 +17,10 @@ const {
   createZip,
   readFile,
   readFileInStream,
-  removeFile
+  removeFile,
+  saveFileFromUrl
 } = require("./gemini/stream");
-
+saveFileFromUrl();
 var app = express();
 app.use(status());
 
