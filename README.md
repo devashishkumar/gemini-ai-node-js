@@ -21,4 +21,5 @@ GEMINI_AI_API_KEY=your api key
 3. Generate response as stream
 4. Create interactive chat
 5. Create interactive chat streaming
+6. Configure text generation
 ```

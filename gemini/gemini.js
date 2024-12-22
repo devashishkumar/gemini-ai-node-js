@@ -122,15 +122,35 @@ class GeminiAiClass {
       process.stdout.write(chunkText);
     }
   }
+
+  /**
+   * configure text generation
+   * @param {string} prompt
+   */
+  async configureTextGeneration(prompt) {
+    const model = this.geminiAiObj.getGenerativeModel({
+      model: this.geminiAiModel,
+      generationConfig: {
+        candidateCount: 1,
+        stopSequences: ["x"],
+        maxOutputTokens: 20,
+        temperature: 1.0,
+      },
+    });
+
+    const result = await model.generateContent(prompt);
+    console.log(result.response.text());
+  }
 }
 
 const classObj = new GeminiAiClass();
-// classObj.generateTextData("What are LLM");
+// classObj.generateTextData("What is LLM");
 // classObj.imageToText(
 //   `image.png`,
 //   "image/png",
 //   "Tell something about this image"
 // );
-// classObj.generateTextData("What are LLM");
+// classObj.generateTextData("What is LLM");
 // classObj.createInteractiveChat();
 // classObj.createInteractiveChatStreaming();
+classObj.configureTextGeneration("What is LLM");
