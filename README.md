@@ -36,4 +36,6 @@ GEMINI_AI_API_KEY=your api key
 1. Read file
 2. Read file in stream
 3. Create zip file from existing file
+4. Create text file sync/async
+5. Append file content
 ```

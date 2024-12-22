@@ -9,7 +9,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 require('./gemini/gemini');
 // require('./gemini/ImageProcessing');
-const {createZip, readFile, readFileInStream} = require('./gemini/stream');
+const {createFile, createZip, readFile, readFileInStream} = require('./gemini/stream');
 
 var app = express();
 app.use(status());
