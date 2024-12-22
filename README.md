@@ -38,4 +38,6 @@ GEMINI_AI_API_KEY=your api key
 3. Create zip file from existing file
 4. Create text file sync/async
 5. Append file content
+6. Copy file
+7. Remove file
 ```

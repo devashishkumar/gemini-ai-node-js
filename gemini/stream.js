@@ -1,6 +1,7 @@
 const fs = require("fs");
 const zlib = require("zlib");
 const fileName = "input.txt";
+const unlinkFileName = "";
 
 // read file
 const readFile = () => {
@@ -40,9 +41,9 @@ const readFileInStream = () => {
 // create zip file from existing file
 const createZip = () => {
   try {
-    fs
-      .createReadStream(fileName)
-      .pipe(zlib.createGzip().pipe(fs.createWriteStream("./input.zip")));
+    fs.createReadStream(fileName).pipe(
+      zlib.createGzip().pipe(fs.createWriteStream("./input.zip"))
+    );
   } catch (e) {
     console.log("error");
   }
@@ -50,36 +51,78 @@ const createZip = () => {
 
 // create file along with content
 const createFile = () => {
-    try {
-        // synchronous
-        fs.writeFileSync("./file.txt", "Hello World");
+  try {
+    // synchronous
+    fs.writeFileSync("./file.txt", "Hello World");
 
-        // asynchronous
-        fs.writeFile("./file.txt", "Hello World", (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
-      } catch (e) {
-        console.log("error");
-      } 
-}
+    // asynchronous
+    fs.writeFile("./file.txt", "Hello World", (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } catch (e) {
+    console.log("error");
+  }
+};
 
 // append file content
 const appendFileContent = () => {
+  try {
+    // synchronous
+    fs.appendFileSync(fileName, new Date().toLocaleString());
+
+    // asynchronous
+    fs.appendFile(fileName, new Date().toLocaleString(), (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } catch (e) {
+    console.log("error");
+  }
+};
+
+// copy file
+const copyFile = () => {
+  try {
+    // synchronous
+    fs.copyFileSync(fileName, "./newfile.txt");
+
+    // asynchronous
+    fs.copyFile(fileName, "./newfile.txt", (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } catch (e) {
+    console.log("error");
+  }
+};
+
+// remove file
+const removeFile = () => {
     try {
-        // synchronous
-        fs.appendFileSyncSync(fileName, new Date().toLocaleString());
+      // synchronous
+      fs.unlinkSync(unlinkFileName);
+  
+      // asynchronous
+      fs.unlink(unlinkFileName, (err) => {
+        if (err) {
+          console.log(err);
+        }
+      });
+    } catch (e) {
+      console.log("error");
+    }
+  };
 
-        // asynchronous
-        fs.appendFile(fileName, new Date().toLocaleString(), (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
-      } catch (e) {
-        console.log("error");
-      } 
-}
-
-module.exports = { createFile, createZip, readFile, readFileInStream };
+module.exports = {
+  appendFileContent,
+  copyFile,
+  createFile,
+  createZip,
+  readFile,
+  readFileInStream,
+  removeFile
+};
