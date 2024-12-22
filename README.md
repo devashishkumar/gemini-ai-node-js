@@ -29,3 +29,10 @@ GEMINI_AI_API_KEY=your api key
 ```sh
 1. pass image url and return information
 ```
+
+### Node JS
+
+```sh
+1. Read file
+2. Read file in stream
+```
