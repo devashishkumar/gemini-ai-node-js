@@ -27,7 +27,7 @@ GEMINI_AI_API_KEY=your api key
 ### Image Processing Class
 
 ```sh
-1. pass image url and return information
+1. Pass image url and return information
 ```
 
 ### Node JS
