@@ -19,7 +19,6 @@ const {
   readFileInStream,
   removeFile
 } = require("./gemini/stream");
-createDirectory();
 
 var app = express();
 app.use(status());
