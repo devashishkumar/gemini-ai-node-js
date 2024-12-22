@@ -64,6 +64,64 @@ class GeminiAiClass {
       process.stdout.write(chunkText);
     }
   }
+
+  /**
+   * create interactive chat
+   */
+  async createInteractiveChat() {
+    const model = this.geminiAiObj.getGenerativeModel({
+      model: this.geminiAiModel,
+    });
+
+    const chat = model.startChat({
+      history: [
+        {
+          role: "user",
+          parts: [{ text: "Hello" }],
+        },
+        {
+          role: "model",
+          parts: [{ text: "Great to meet you. What would you like to know?" }],
+        },
+      ],
+    });
+    let result = await chat.sendMessage("My Brother name is Ayush.");
+    console.log(result.response.text());
+    result = await chat.sendMessage("What is my Brother name?");
+    console.log(result.response.text());
+  }
+
+  /**
+   * create interactive chat streaming
+   */
+  async createInteractiveChatStreaming() {
+    const model = this.geminiAiObj.getGenerativeModel({
+      model: this.geminiAiModel,
+    });
+
+    const chat = model.startChat({
+      history: [
+        {
+          role: "user",
+          parts: [{ text: "Hello" }],
+        },
+        {
+          role: "model",
+          parts: [{ text: "Great to meet you. What would you like to know?" }],
+        },
+      ],
+    });
+    let result = await chat.sendMessageStream("My Brother name is Ayush.");
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      process.stdout.write(chunkText);
+    }
+    result = await chat.sendMessageStream("What is my Brother name?");
+    for await (const chunk of result.stream) {
+      const chunkText = chunk.text();
+      process.stdout.write(chunkText);
+    }
+  }
 }
 
 const classObj = new GeminiAiClass();
@@ -73,4 +131,6 @@ const classObj = new GeminiAiClass();
 //   "image/png",
 //   "Tell something about this image"
 // );
-classObj.generateTextData("What are LLM");
+// classObj.generateTextData("What are LLM");
+// classObj.createInteractiveChat();
+// classObj.createInteractiveChatStreaming();

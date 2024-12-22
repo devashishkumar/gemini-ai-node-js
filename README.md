@@ -19,4 +19,6 @@ GEMINI_AI_API_KEY=your api key
 1. Return data from prompt text
 2. Provide image to read it and return information
 3. Generate response as stream
+4. Create interactive chat
+5. Create interactive chat streaming
 ```
