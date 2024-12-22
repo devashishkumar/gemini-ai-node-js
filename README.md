@@ -40,4 +40,5 @@ GEMINI_AI_API_KEY=your api key
 5. Append file content
 6. Copy file
 7. Remove file
+8. Create new directory in case not available in the provide path
 ```

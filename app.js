@@ -12,12 +12,14 @@ require("./gemini/gemini");
 const {
   appendFileContent,
   copyFile,
+  createDirectory,
   createFile,
   createZip,
   readFile,
   readFileInStream,
   removeFile
 } = require("./gemini/stream");
+createDirectory();
 
 var app = express();
 app.use(status());

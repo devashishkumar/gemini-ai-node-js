@@ -102,27 +102,50 @@ const copyFile = () => {
 
 // remove file
 const removeFile = () => {
-    try {
-      // synchronous
-      fs.unlinkSync(unlinkFileName);
-  
-      // asynchronous
-      fs.unlink(unlinkFileName, (err) => {
-        if (err) {
-          console.log(err);
-        }
-      });
-    } catch (e) {
-      console.log("error");
+  try {
+    // synchronous
+    fs.unlinkSync(unlinkFileName);
+
+    // asynchronous
+    fs.unlink(unlinkFileName, (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } catch (e) {
+    console.log("error");
+  }
+};
+
+// create new directory in case not available in the provide path
+const createDirectory = () => {
+  const path = "dir";
+  try {
+    // check if path exist
+    if (fs.existsSync(path)) {
+      console.log("path exist");
     }
-  };
+
+    // recursive true means we can create nested directory in one go
+    fs.access(path, (error) => {
+      if (!error) {
+        console.log("path exist");
+      } else {
+        fs.mkdirSync("dir/newdir", { recursive: true });
+      }
+    });
+  } catch (e) {
+    console.log("error");
+  }
+};
 
 module.exports = {
   appendFileContent,
   copyFile,
+  createDirectory,
   createFile,
   createZip,
   readFile,
   readFileInStream,
-  removeFile
+  removeFile,
 };
