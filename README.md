@@ -23,3 +23,9 @@ GEMINI_AI_API_KEY=your api key
 5. Create interactive chat streaming
 6. Configure text generation
 ```
+
+### Image Processing Class
+
+```sh
+1. pass image url and return information
+```

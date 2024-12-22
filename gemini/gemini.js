@@ -153,4 +153,4 @@ const classObj = new GeminiAiClass();
 // classObj.generateTextData("What is LLM");
 // classObj.createInteractiveChat();
 // classObj.createInteractiveChatStreaming();
-classObj.configureTextGeneration("What is LLM");
+// classObj.configureTextGeneration("What is LLM");
