@@ -13,7 +13,7 @@ GEMINI_AI_API_KEY=your api key
 5. Execute command 'nodemon start'
 ```
 
-### Some of the code examples are
+### Some of the code examples using Gemini AI
 
 ```sh
 1. Return data from prompt text
@@ -24,12 +24,17 @@ GEMINI_AI_API_KEY=your api key
 6. Configure text generation
 ```
 
-### Image Processing Class
+### Image Processing using Gemini AI
 
 ```sh
 1. Pass image url and return information
 ```
+### Code Execution using Gemini AI
 
+```sh
+1. Generate Code
+2. Execute Code
+```
 ### Node JS
 
 ```sh
@@ -47,11 +52,4 @@ GEMINI_AI_API_KEY=your api key
 
 ```sh
 1. Git clone using node js
-```
-
-### Code Execution
-
-```sh
-1. Generate Code
-2. Execute Code
 ```
