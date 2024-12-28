@@ -123,6 +123,23 @@ const removeFile = () => {
   }
 };
 
+// remove directory
+const removeDirectory = () => {
+  try {
+    // synchronous
+    fs.rmdirSync(path);
+
+    // asynchronous
+    fs.rmdir(path, (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+  } catch(e) {
+    console.log(e);
+  }
+}
+
 // create new directory in case not available in the provide path
 const createDirectory = () => {
   const path = "dir";
@@ -158,7 +175,9 @@ const saveFileFromUrl = async () => {
   if (splitName && splitName.length) {
     fName = `${fName}.${splitName[splitName.length - 1]}`;
   }
-  if (!fs.existsSync("downloads")) await mkdir("downloads"); //Optional if you already have downloads directory
+  if (!fs.existsSync("downloads")) {
+    await mkdir("downloads"); //if you not have downloads directory
+  }
   const destination = path.resolve("./downloads", fName);
   const fileStream = fs.createWriteStream(destination, { flags: "wx" });
   await finished(Readable.fromWeb(res.body).pipe(fileStream));
@@ -172,6 +191,7 @@ module.exports = {
   createZip,
   readFile,
   readFileInStream,
+  removeDirectory,
   removeFile,
   saveFileFromUrl,
 };

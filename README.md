@@ -38,7 +38,20 @@ GEMINI_AI_API_KEY=your api key
 3. Create text file sync/async
 4. Append file content
 5. Copy file
-6. Remove file
+6. Remove file/directory
 7. Create new directory in case not available in the provide path
 8. Save file from server url
+```
+
+### Git Features
+
+```sh
+1. Git clone using node js
+```
+
+### Code Execution
+
+```sh
+1. Generate Code
+2. Execute Code
 ```
