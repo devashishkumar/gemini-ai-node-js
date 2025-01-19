@@ -23,6 +23,7 @@ const {
 } = require("./gemini/stream");
 require("./gemini/GitFeatures");
 require("./gemini/CodeExecution");
+require("./gemini/UserInput");
 var app = express();
 app.use(status());
 

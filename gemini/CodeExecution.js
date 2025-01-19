@@ -81,6 +81,3 @@ class CodeExecutionClass {
     console.log(result.response.text());
   }
 }
-
-const classObj = new CodeExecutionClass();
-classObj.enableCodeExecutionInChat();
