@@ -53,3 +53,9 @@ GEMINI_AI_API_KEY=your api key
 ```sh
 1. Git clone using node js
 ```
+
+### Extract text from image
+
+```sh
+1. Using tesseract module and node js internal methods
+```

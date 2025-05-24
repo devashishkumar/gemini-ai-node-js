@@ -8,7 +8,7 @@ const status = require("express-status-monitor");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 require("./gemini/gemini");
-// require('./gemini/ImageProcessing');
+require('./gemini/ImageProcessing');
 const {
   appendFileContent,
   copyFile,
@@ -24,6 +24,7 @@ const {
 require("./gemini/GitFeatures");
 require("./gemini/CodeExecution");
 require("./gemini/UserInput");
+require("./gemini/ReadImageContent");
 var app = express();
 app.use(status());
 
