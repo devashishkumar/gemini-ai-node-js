@@ -7,24 +7,25 @@ const status = require("express-status-monitor");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-require("./gemini/gemini");
-require('./gemini/ImageProcessing');
-const {
-  appendFileContent,
-  copyFile,
-  createDirectory,
-  createFile,
-  createZip,
-  readFile,
-  readFileInStream,
-  removeDirectory,
-  removeFile,
-  saveFileFromUrl
-} = require("./gemini/stream");
-require("./gemini/GitFeatures");
-require("./gemini/CodeExecution");
-require("./gemini/UserInput");
-require("./gemini/ReadImageContent");
+// require("./gemini/gemini");
+// require('./gemini/ImageProcessing');
+// const {
+//   appendFileContent,
+//   copyFile,
+//   createDirectory,
+//   createFile,
+//   createZip,
+//   readFile,
+//   readFileInStream,
+//   removeDirectory,
+//   removeFile,
+//   saveFileFromUrl
+// } = require("./gemini/stream");
+// require("./gemini/GitFeatures");
+// require("./gemini/CodeExecution");
+// require("./gemini/UserInput");
+// require("./gemini/ReadImageContent");
+require("./gemini/ProcessPdf");
 var app = express();
 app.use(status());
 
