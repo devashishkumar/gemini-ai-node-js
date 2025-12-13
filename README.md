@@ -2,7 +2,7 @@
 
 Node JS based Gemini AI App
 
-### How to setup application ?
+## How to setup application ?
 
 ```sh
 1. Create an API Key using url. (https://aistudio.google.com/app/apikey)
@@ -13,7 +13,7 @@ GEMINI_AI_API_KEY=your api key
 5. Execute command 'nodemon start'
 ```
 
-### Some of the code examples using Gemini AI
+## Some of the code examples using Gemini AI
 
 ```sh
 1. Return data from prompt text
@@ -24,18 +24,18 @@ GEMINI_AI_API_KEY=your api key
 6. Configure text generation
 ```
 
-### Image Processing using Gemini AI
+## Image Processing using Gemini AI
 
 ```sh
 1. Pass image url and return information
 ```
-### Code Execution using Gemini AI
+## Code Execution using Gemini AI
 
 ```sh
 1. Generate Code
 2. Execute Code
 ```
-### Node JS
+## Node JS
 
 ```sh
 1. Read file sync/async/stream
@@ -48,13 +48,13 @@ GEMINI_AI_API_KEY=your api key
 8. Save file from server url
 ```
 
-### Git Features
+## Git Features
 
 ```sh
 1. Git clone using node js
 ```
 
-### Extract text from image
+## Extract text from image
 
 ```sh
 1. Using tesseract module and node js internal methods
