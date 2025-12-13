@@ -59,3 +59,17 @@ GEMINI_AI_API_KEY=your api key
 ```sh
 1. Using tesseract module and node js internal methods
 ```
+
+
+## Node JS, Gemini AI Based RAG Application
+
+### Search query from C# pdf file added in repository and being used in our RAG application
+
+```sh
+1. Open RAG class file added in RAG folder and pass search query provided below in generateOutput method (refer screenshot).
+```
+![Search Query](https://github.com/user-attachments/assets/2a11e8fb-99dc-490e-81af-a4707a94636d)
+
+### Output
+
+![Search Output](https://github.com/user-attachments/assets/168ceeb9-7ce2-419a-9259-c721aff0f6fa)
