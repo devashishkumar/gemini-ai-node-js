@@ -73,3 +73,38 @@ GEMINI_AI_API_KEY=your api key
 ### Output
 
 ![Search Output](https://github.com/user-attachments/assets/168ceeb9-7ce2-419a-9259-c721aff0f6fa)
+
+## Processing single PDF file (CLI pattern):
+```sh
+node gemini/RAG.js "How does GC work in C#?" "C#.pdf"
+```
+# Using the npm script:
+```sh
+npm run ragrun -- "How does garbage collection work in C#?" "C#.pdf"
+```
+## Processing multiple PDFs in parallel
+
+```sh
+# Example: ask a question, then list files you want to include (absolute or relative paths)
+node gemini/Rag-Multiple-Files.js "How does garbage collection work in C#?" "C#.pdf" "Python-Programming.pdf"
+```
+
+We can also pass a directory and the script will include all `.pdf` files from that directory:
+
+```sh
+node gemini/Rag-Multiple-Files.js "Any relevant info about Python memory management?" ./pdfs
+```
+
+If no files are passed as CLI arguments, the script falls back to default sample PDFs located in the repo.
+
+Note: Files will be read in parallel to speed up indexing; errors loading any single file won't stop the whole job — they're logged to the console.
+
+Debugging tip: we can run in "dry-run" mode to verify which chunks are retrieved without calling the AI model:
+
+```sh
+# Dry run example (no API key required)
+node gemini/Rag-Multiple-Files.js "How does GC work in C#?" "C#.pdf" --dry
+
+# Or using npm script
+npm run ragrun-multi -- "How does GC work in C#?" "C#.pdf" -- --dry
+```

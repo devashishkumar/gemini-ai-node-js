@@ -26,7 +26,7 @@ var usersRouter = require("./routes/users");
 // require("./gemini/UserInput");
 // require("./gemini/ReadImageContent");
 // require("./gemini/ProcessPdf");
-require("./gemini/RAG");
+// require("./gemini/Rag-Multiple-Files");
 var app = express();
 app.use(status());
 
