@@ -1,101 +1,87 @@
-### Documentation
+# Gemini AI Node.js App
 
-Node JS based Gemini AI App
+A Node.js application integrating Google's Gemini AI for various AI-powered functionalities including text generation, image processing, code execution, RAG (Retrieval-Augmented Generation) and more.
 
-## How to setup application ?
+## Features
+
+- **Text Generation**: Generate responses from text prompts
+- **Image Processing**: Analyze images and extract information
+- **Streaming Responses**: Real-time streaming of AI responses
+- **Interactive Chat**: Create conversational interfaces
+- **Code Execution**: Generate and execute code using AI
+- **File Operations**: Comprehensive Node.js file system operations
+- **Git Integration**: Clone repositories programmatically
+- **OCR**: Extract text from images using Tesseract
+- **RAG Implementation**: Search and retrieve information from PDF documents
+- **Multi-PDF Processing**: Process multiple PDFs in parallel for RAG
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm
+- Google Gemini AI API Key
+
+## Installation
+
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd gemini-ai-node-js
+   ```
+
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Install nodemon globally (for development):
+   ```sh
+   npm install -g nodemon
+   ```
+
+## Configuration
+
+1. Create a Google Gemini AI API Key at [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+2. Create a `.env` file in the root directory:
+   ```
+   GEMINI_AI_API_KEY=your_api_key_here
+   ```
+
+## Usage
+
+### Starting the Application
 
 ```sh
-1. Create an API Key using url. (https://aistudio.google.com/app/apikey)
-2. Create .env file in the application and add Gemini AI API Key like this:
-GEMINI_AI_API_KEY=your api key
-3. Execute command in application root 'npm install'
-4. Install nodemon package in your machine using command 'npm install -g nodemon'
-5. Execute command 'nodemon start'
+npm start
 ```
 
-## Some of the code examples using Gemini AI
-
+Or for development with auto-restart:
 ```sh
-1. Return data from prompt text
-2. Provide image to read it and return information
-3. Generate response as stream
-4. Create interactive chat
-5. Create interactive chat streaming
-6. Configure text generation
+nodemon start
 ```
 
-## Image Processing using Gemini AI
+### RAG Features
 
+#### Single PDF Processing
 ```sh
-1. Pass image url and return information
-```
-## Code Execution using Gemini AI
+# Using npm script
+npm run ragrun -- "How does garbage collection work in C#?" "C#.pdf"
 
-```sh
-1. Generate Code
-2. Execute Code
-```
-## Node JS
-
-```sh
-1. Read file sync/async/stream
-2. Create zip file from existing file
-3. Create text file sync/async
-4. Append file content
-5. Copy file
-6. Remove file/directory
-7. Create new directory in case not available in the provide path
-8. Save file from server url
-```
-
-## Git Features
-
-```sh
-1. Git clone using node js
-```
-
-## Extract text from image
-
-```sh
-1. Using tesseract module and node js internal methods
-```
-
-
-## Node JS, Gemini AI Based RAG Application
-
-### Search query from C# pdf file added in repository and being used in our RAG application
-
-```sh
-1. Open RAG class file added in RAG folder and pass search query provided below in generateOutput method (refer screenshot).
-```
-![Search Query](https://github.com/user-attachments/assets/2a11e8fb-99dc-490e-81af-a4707a94636d)
-
-### Output
-
-![Search Output](https://github.com/user-attachments/assets/168ceeb9-7ce2-419a-9259-c721aff0f6fa)
-
-## Processing single PDF file (CLI pattern):
-```sh
+# Or directly
 node gemini/RAG.js "How does GC work in C#?" "C#.pdf"
 ```
-# Using the npm script:
-```sh
-npm run ragrun -- "How does garbage collection work in C#?" "C#.pdf"
-```
-## Processing multiple PDFs in parallel
 
+#### Multiple PDF Processing
 ```sh
-# Example: ask a question, then list files you want to include (absolute or relative paths)
+# Process multiple specific PDFs
 node gemini/Rag-Multiple-Files.js "How does garbage collection work in C#?" "C#.pdf" "Python-Programming.pdf"
-```
 
-We can also pass a directory and the script will include all `.pdf` files from that directory:
-
-```sh
+# Process all PDFs in a directory
 node gemini/Rag-Multiple-Files.js "Any relevant info about Python memory management?" ./pdfs
 ```
 
-If no files are passed as CLI arguments, the script falls back to default sample PDFs located in the repo.
+If no files are specified, the script uses default sample PDFs.
 
 Note: Files will be read in parallel to speed up indexing; errors loading any single file won't stop the whole job — they're logged to the console.
 
@@ -108,3 +94,67 @@ node gemini/Rag-Multiple-Files.js "How does GC work in C#?" "C#.pdf" --dry
 # Or using npm script
 npm run ragrun-multi -- "How does GC work in C#?" "C#.pdf" -- --dry
 ```
+
+## API Examples
+
+The application provides various Gemini AI integrations:
+
+### Text Generation
+- Generate responses from text prompts
+- Configure text generation parameters
+
+### Image Processing
+- Pass image URLs to extract information
+- Analyze images for content understanding
+
+### Code Execution
+- Generate code snippets
+- Execute generated code
+
+### File System Operations
+- Read/write files synchronously and asynchronously
+- Create directories and zip files
+- Download files from URLs
+- Stream file operations
+
+### Git Operations
+- Clone repositories using Node.js
+
+### OCR (Optical Character Recognition)
+- Extract text from images using Tesseract.js
+
+## Project Structure
+
+```
+├── app.js                 # Main Express application
+├── bin/www               # Server startup script
+├── gemini/               # AI integration modules
+│   ├── gemini.js         # Core Gemini AI functionality
+│   ├── ImageProcessing.js # Image analysis
+│   ├── CodeExecution.js  # Code generation and execution
+│   ├── RAG.js            # Single PDF RAG
+│   ├── Rag-Multiple-Files.js # Multi-PDF RAG
+│   └── ...               # Other feature modules
+├── routes/               # Express routes
+├── views/                # Jade templates
+├── public/               # Static assets
+└── package.json          # Dependencies and scripts
+```
+
+## Dependencies
+
+Key dependencies include:
+- `@google/generative-ai`: Google Gemini AI SDK
+- `express`: Web framework
+- `langchain`: AI framework for RAG
+- `chromadb`: Vector database for embeddings
+- `pdf-parse`: PDF text extraction
+- `tesseract.js`: OCR functionality
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
